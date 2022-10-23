@@ -1,0 +1,160 @@
+####################################################################################
+# symfony-project-template - Docker - staging Container Configuration                   #
+# @author: Axel Salem                                      #
+####################################################################################
+
+# Docker-compose language version
+version: '3.8'
+
+# Docker networking configuration
+networks:
+
+    # Defining the virtual network used by docker internally
+    symfony-project-template_staging_network:
+        ipam:
+            driver: default
+
+            # 10.1.0.0 > 10.1.255.255
+            # Network IPs structure is the following:
+            # 10 . [environment] . [technology] . [instance]
+            config:
+                -   subnet: 10.1.0.0/16
+
+# Containers services definition
+services:
+
+    #########################################################################
+    # MySQL Container Configuration                                         #
+    #########################################################################
+    mysql:
+
+        # Image Generation
+        build:
+            context: "../"
+            dockerfile: "./docker-sources/containers-config/mysql/staging-mysql/staging-mysql-container-config.docker"
+
+        # Generated Image naming
+        # Set the image name here
+        image: symfony-project-template-staging-mysql
+
+        # The inner container name for docker console commands
+        container_name: symfony-project-template-staging-mysql
+
+        # Custom container port : MySQL application port
+        # Keep this exposed locally
+        ports:
+            - "10311:10311"
+
+        # ENV file utilisation
+        # This file is to complete for each environment by the developer
+        env_file:
+            - "../environment-files/.env"
+            - "../environment-files/.env.staging.local"
+
+        # Share the database volume from the container with our local directory to have a persistent volume
+        volumes:
+            - ../../docker-volumes-sources/symfony-project-template-staging/database-MySQL:/var/lib/mysql
+
+        # Give a static IP address to this container
+        # From the network named "network"
+        networks:
+            symfony-project-template_staging_network:
+
+    #########################################################################
+    # NginX Container Configuration                                         #
+    #########################################################################
+    nginx:
+
+        # Image Generation
+        build:
+            context: "../"
+            dockerfile: "./docker-sources/containers-config/nginx/staging-nginx/staging-nginx-container-config.docker"
+
+        # Generated Image Calling
+        image: symfony-project-template-staging-nginx
+
+        # The inner container name for docker console commands
+        container_name: symfony-project-template-staging-nginx
+
+        # Custom container port : NginX application port for FastCGI
+        ports:
+            - "10111:10111"
+
+        # Put this container in the network named "symfony-project-template_staging_network"
+        networks:
+            symfony-project-template_staging_network:
+
+        # Share any directory or file that you need into the container
+        volumes:
+
+            # The public mount directories and the frontend controller pattern files.
+            - ../public:/projects/symfony-project-template/public
+
+        depends_on:
+            - php-fpm
+
+    #########################################################################
+    # PHP-FPM Container Configuration                                       #
+    #########################################################################
+    php-fpm:
+
+        # Image Generation
+        build:
+            context: "../"
+            dockerfile: "./docker-sources/containers-config/php-fpm/staging-php-fpm/staging-php-fpm-container-config.docker"
+
+        # Generated Image Calling
+        image: symfony-project-template-staging-php-fpm
+
+        # The inner container name for docker console commands
+        container_name: symfony-project-template-staging-php-fpm
+
+        # Custom container port : PHP-FPM application port for FastCGI
+        ports:
+            - "10211:10211"
+
+        # Share the backend subdirs volumes with PHP-CLI so that it can access it.
+        # Careful though, we only share the ones that are non-local.
+        # The rest is generated locally, or copied.
+        # NOTE: please add as a TODO any subsequent supplementary subdirectories that are needed here.
+        volumes:
+            # The public mount directories and the frontend controller pattern files.
+            - ../public:/projects/symfony-project-template/public
+
+        # Put this container in the network named "symfony-project-template_staging_network"
+        networks:
+            symfony-project-template_staging_network:
+
+        depends_on:
+          - mysql
+
+    #########################################################################
+    # PHP-CLI Container Configuration                                       #
+    #########################################################################
+    php-cli:
+
+        # Image Generation
+        build:
+            context: "../"
+            dockerfile: "./docker-sources/containers-config/php-cli/staging-php-cli/staging-php-cli-container-config.docker"
+
+        # Generated Image Calling
+        image: symfony-project-template-staging-php-cli
+
+        # The inner container name for docker console commands
+        container_name: symfony-project-template-staging-php-cli
+
+        # Share the backend subdirs volumes with PHP-CLI so that it can access it.
+        # Careful though, we only share the ones that are non-local.
+        # The rest is generated locally, or copied.
+        # NOTE: please add as a TODO any subsequent supplementary subdirectories that are needed here.
+        volumes:
+            # The public mount directories and the frontend controller pattern files.
+            - ../public:/projects/symfony-project-template/public
+
+        # Put this container in the network named "symfony-project-template_staging_network"
+        networks:
+            symfony-project-template_staging_network:
+
+        depends_on:
+            - mysql
