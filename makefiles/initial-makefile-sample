@@ -3,5 +3,5 @@
 init-project-win:
 	@.\bin\custom-scripts\project-initialisation.bat
 
-init-project-lm:
+init-project-lin:
 	@bash bin/custom-scripts/project-initialisation.sh

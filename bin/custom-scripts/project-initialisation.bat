@@ -67,6 +67,20 @@ ECHO -----------------------------------------------------------------------
 ECHO Successfully update composer vendor.
 ECHO -----------------------------------------------------------------------
 
+:: Creation of the local .env.dev.local file from the template
+ECHO ---------------------------------------------------
+ECHO Creation of the local .env.dev file for docker
+ECHO Copying .env.local.dist to .env.dev.local
+ECHO ---------------------------------------------------
+COPY environment-files\.env.[environment].local-dist.sample environment-files\.env.dev.local
+
+:: Creation of the specific OS Makefile
+ECHO ---------------------------------------------------
+ECHO Creation of the specific OS Makefile
+ECHO Copying windows-makefile-sample to Makefile
+ECHO ---------------------------------------------------
+COPY Makefiles\windows-makefile-sample Makefile
+
 :: Git Initialization
 ECHO .
 ECHO ---------------------------------------------------
@@ -76,7 +90,7 @@ ECHO ---------------------------------------------------
 :: Initialization of git
 SET /P confirm="Are you SURE you want to initialise git (If git was already by you or other people, enter n or N)? (Y/y/N/n) "
 ECHO.
-IF /I "%confirm%"=="y" (GOTO :git-initialize) ELSE (GOTO :git-init-bypass)
+IF /I "%confirm%"=="y" (GOTO :git-initialize) ELSE (GOTO :end)
 
 :git-initialize
 if not exist ./.git (
@@ -85,14 +99,6 @@ if not exist ./.git (
     rd /s /q .git
     git init
 )
-
-:git-init-bypass
-:: Creation of the local .env.dev.local file from the template
-ECHO ---------------------------------------------------
-ECHO Creation of the local .env.dev file for docker
-ECHO Copying .env.local.dist to .env.dev.local
-ECHO ---------------------------------------------------
-COPY environment-files\.env.[environment].local-dist.sample environment-files\.env.dev.local
 
 :: Just stop here and go to the end!
 GOTO end

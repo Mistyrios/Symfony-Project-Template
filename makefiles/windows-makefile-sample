@@ -3,7 +3,7 @@
 init-project:
 	@.\bin\custom-scripts\project-initialisation.bat
 update-composer:
-	@.\bin\custom-scripts\install-project-on-windows.bat
+	@.\bin\custom-scripts\update-composer.bat
 
 # The commands for enter in the docker containers
 php-cli-dev:
