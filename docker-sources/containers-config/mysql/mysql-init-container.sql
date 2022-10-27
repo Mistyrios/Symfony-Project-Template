@@ -1,6 +1,6 @@
 #####################################################################################
-# symfony-project-template - MySQL - Dev SQL Configuration File                     #
-# @author: Axel Salem                                       #
+# symfony-project-template - MySQL - Dev SQL Configuration File                    #
+# @author: Axel Salem                                                               #
 #####################################################################################
 
 # Connection to the table mysql

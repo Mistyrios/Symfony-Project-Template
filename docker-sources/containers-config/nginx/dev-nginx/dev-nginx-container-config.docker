@@ -1,6 +1,6 @@
 #####################################################################################
 # symfony-project-template - Docker - Dev Nginx Container Configuration File        #
-# @author: Axel Salem                                       #
+# @author: Axel Salem                                                               #
 #####################################################################################
 
 # From allow you to use an image from DockerHub

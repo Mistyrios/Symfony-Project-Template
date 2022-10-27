@@ -1,12 +1,11 @@
 ################################################################################################
-# symfony-project-template - Docker - PHP-FPM Container Configuration                   #
-
-# @author: Axel Salem                                    #
+# symfony-project-template - Docker - PHP-FPM Container Configuration                          #
+# @author: Axel Salem                                                                          #
 ################################################################################################
 
 # Using official PHP-FPM image from docker hub
 # @Uses Debian Stretch
-FROM php:7.2-fpm
+FROM php:8.0-fpm
 
 # Value used for the next step
 # This value don't stay in the container
@@ -25,11 +24,11 @@ COPY $commonFileDirectory/.bashrc /root/.bashrc
 
 # This php.ini has edits for web calls
 # @SEE staging-php-fpm.ini
-COPY $dockerFileDirectory/staging-php-fpm.ini $etcContainerDirectory/php/php.ini
+COPY $phpFpmDirectory/global-php-fpm.ini $etcContainerDirectory/php/php.ini
 
 # This staging-php-fpm.conf has edits to change the logs
 # @SEE staging-php-fpm.conf
-COPY $dockerFileDirectory/staging-php-fpm.conf $etcContainerDirectory/php-fpm.conf
+COPY $phpFpmDirectory/global-php-fpm.conf $etcContainerDirectory/php-fpm.conf
 
 RUN touch /usr/local/var/log/staging-php-fpm.log
 RUN chmod 777 /usr/local/var/log/staging-php-fpm.log && chown www-data:www-data /usr/local/var/log/staging-php-fpm.log

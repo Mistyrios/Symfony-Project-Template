@@ -1,6 +1,6 @@
 ####################################################################################
-# symfony-project-template - Docker - staging Container Configuration                   #
-# @author: Axel Salem                                      #
+# symfony-project-template - Docker - Prod Container Configuration                 #
+# @author: Axel Salem                                                              #
 ####################################################################################
 
 # Docker-compose language version
@@ -31,7 +31,7 @@ services:
         # Image Generation
         build:
             context: "../"
-            dockerfile: "./docker-sources/containers-config/mysql/prod-mysql/prod-mysql-container-config.docker"
+            dockerfile: "docker-sources/containers-config/mysql/prod-mysql/prod-mysql-container-config.docker"
 
         # Generated Image naming
         # Set the image name here
@@ -68,7 +68,7 @@ services:
         # Image Generation
         build:
             context: "../"
-            dockerfile: "./docker-sources/containers-config/nginx/prod-nginx/prod-nginx-container-config.docker"
+            dockerfile: "docker-sources/containers-config/nginx/prod-nginx/prod-nginx-container-config.docker"
 
         # Generated Image Calling
         image: symfony-project-template-prod-nginx
@@ -101,7 +101,7 @@ services:
         # Image Generation
         build:
             context: "../"
-            dockerfile: "./docker-sources/containers-config/php-fpm/prod-php-fpm/prod-php-fpm-container-config.docker"
+            dockerfile: "docker-sources/containers-config/php-fpm/prod-php-fpm/prod-php-fpm-container-config.docker"
 
         # Generated Image Calling
         image: symfony-project-template-prod-php-fpm
@@ -136,7 +136,7 @@ services:
         # Image Generation
         build:
             context: "../"
-            dockerfile: "./docker-sources/containers-config/php-cli/prod-php-cli/prod-php-cli-container-config.docker"
+            dockerfile: "docker-sources/containers-config/php-cli/prod-php-cli/prod-php-cli-container-config.docker"
 
         # Generated Image Calling
         image: symfony-project-template-prod-php-cli

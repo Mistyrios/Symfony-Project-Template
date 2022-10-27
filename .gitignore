@@ -1,9 +1,6 @@
 # A directory create by PhpStorm
 .idea/
 
-# Init project will automatically create them
-php-sources/php-win64
-
 ###> symfony/framework-bundle ###
 /environment-files/.env.local
 /environment-files/.env.local.php

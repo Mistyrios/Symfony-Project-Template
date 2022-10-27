@@ -67,13 +67,6 @@ ECHO -----------------------------------------------------------------------
 ECHO Successfully update composer vendor.
 ECHO -----------------------------------------------------------------------
 
-:: Creation of the local .env.dev.local file from the template
-ECHO ---------------------------------------------------
-ECHO Creation of the local .env.dev file for docker
-ECHO Copying .env.local.dist to .env.dev.local
-ECHO ---------------------------------------------------
-COPY environment-files\.env.[environment].local-dist.sample environment-files\.env.dev.local
-
 :: Creation of the specific OS Makefile
 ECHO ---------------------------------------------------
 ECHO Creation of the specific OS Makefile

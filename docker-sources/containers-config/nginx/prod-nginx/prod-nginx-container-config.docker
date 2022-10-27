@@ -1,12 +1,12 @@
 ############################################################################################
-# symfony-project-template - Docker - Nginx Production Container Configuration File #
-# @author: Axel Salem                                              #
+# symfony-project-template - Docker - Prod Nginx Container Configuration File              #
+# @author: Axel Salem                                                                      #
 ############################################################################################
 
 # From allow you to use an image from DockerHub
 # After the colon, you will find the version of the image
 # Use Debian Stretch-Slim image
-FROM nginx:1.17
+FROM nginx:1.23
 
 # Value used for the next step
 ENV     commonFileDirectory         docker-sources/containers-config/

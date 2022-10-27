@@ -1,24 +1,22 @@
 ################################################################################################
-# symfony-project-template - Docker - PHP-CLI Container Configuration                   #
-
-# @author: Axel Salem                                    #
+# symfony-project-template - Docker - Prod PHP-CLI Container Configuration                     #
+# @author: Axel Salem                                                                          #
 ################################################################################################
 
 # Using official PHP-CLI image from docker hub
 # @Uses Debian Stretch
-FROM php:7.2-cli
+FROM php:8.0-cli
 
 # Value used for the next step
 # This value don't stay in the container
 ENV     commonFileDirectory         docker-sources/containers-config/
-ENV     phpFpmDirectory             $commonFileDirectory/php-cli/
-ENV     dockerFileDirectory         $phpFpmDirectory/prod-php-cli/
+ENV     phpCliDirectory             $commonFileDirectory/php-cli/
 
 ENV     etcContainerDirectory       /usr/local/etc/
 ENV     binContainerDirectory       /usr/local/bin/
 
 # Adding custom sysadmin utilities
-RUN apt-get update && apt-get install -y vim nano procps net-tools wget curl iputils-ping
+RUN apt-get update && apt-get install -y vim nano procps net-tools wget curl iputils-ping zip unzip libonig-dev libcurl4-openssl-dev libsodium-dev libpng-dev
 
 # Adding custom utilities for PHP-CLI containers
 RUN apt-get install -y git zlib1g-dev libzip-dev unzip
@@ -28,12 +26,11 @@ COPY $commonFileDirectory/.bashrc /root/.bashrc
 
 # This php.ini has edits for batch processing and lesser time/memory limits
 # @SEE prod-php-cli.ini
-COPY $dockerFileDirectory/prod-php-cli.ini $etcContainerDirectory/php/php.ini
+COPY $phpCliDirectory/global-php-cli.ini $etcContainerDirectory/php/php.ini
 
 # Install the additional PHP extensions required by the backend
 # These extensions are installed via a special script provided by the docker hub image
-RUN $binContainerDirectory/docker-php-ext-install "pdo_mysql"
-RUN $binContainerDirectory/docker-php-ext-install "zip"
+RUN $binContainerDirectory/docker-php-ext-install "pdo_mysql" "zip" "mysqli" "mbstring" "curl" "sodium" "gd"
 
 # Set the main directory of the container to the project sources
 WORKDIR /projects/symfony-project-template/

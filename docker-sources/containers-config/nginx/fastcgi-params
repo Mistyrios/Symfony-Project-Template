@@ -1,7 +1,6 @@
 ################################################################################################
-# symfony-project-template - Nginx - NGINX Container Configuration (fastCGI parameters) #
-
-# @author: Axel Salem                                    #
+# symfony-project-template - Nginx - NGINX Container Configuration (fastCGI parameters)        #
+# @author: Axel Salem                                                                          #
 ################################################################################################
 
 # FastCGI parameter from NginX web-site

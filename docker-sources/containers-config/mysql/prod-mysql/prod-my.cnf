@@ -1,6 +1,6 @@
 #####################################################################################
-# symfony-project-template - MySQL - Dev Configuration File                         #
-# @author: Axel Salem                                       #
+# symfony-project-template - MySQL - Prod Configuration File                        #
+# @author: Axel Salem                                                               #
 #####################################################################################
 
 # Defaults here.

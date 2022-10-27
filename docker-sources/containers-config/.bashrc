@@ -1,6 +1,6 @@
 ################################################################################################
 # symfony-project-template - Debian - A Global .bashrc File                                    #
-# @author: Axel Salem                                                  #
+# @author: Axel Salem                                                                          #
 ################################################################################################
 
 # ~/.bashrc: executed by bash(1) for non-login shells.

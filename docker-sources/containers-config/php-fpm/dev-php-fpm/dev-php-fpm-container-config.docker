@@ -1,7 +1,6 @@
 ################################################################################################
-# symfony-project-template - Docker - PHP-FPM Container Configuration                   #
-
-# @author: Axel Salem                                    #
+# symfony-project-template - Docker - Dev PHP-FPM Container Configuration                      #
+# @author: Axel Salem                                                                          #
 ################################################################################################
 
 # Using official PHP-FPM image from docker hub
@@ -29,11 +28,11 @@ COPY $commonFileDirectory/.bashrc /root/.bashrc
 
 # This php.ini has edits for web calls
 # @SEE dev-php-fpm.ini
-COPY $dockerFileDirectory/dev-php-fpm.ini $etcContainerDirectory/php/php.ini
+COPY $phpFpmDirectory/global-php-fpm.ini $etcContainerDirectory/php/php.ini
 
 # This dev-php-fpm.conf has edits to change the logs
 # @SEE dev-php-fpm.conf
-COPY $dockerFileDirectory/dev-php-fpm.conf $etcContainerDirectory/php-fpm.conf
+COPY $phpFpmDirectory/global-php-fpm.conf $etcContainerDirectory/php-fpm.conf
 
 RUN touch /usr/local/var/log/dev-php-fpm.log
 RUN chmod 777 /usr/local/var/log/dev-php-fpm.log && chown www-data:www-data /usr/local/var/log/dev-php-fpm.log

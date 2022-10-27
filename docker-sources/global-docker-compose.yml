@@ -1,6 +1,6 @@
 ####################################################################################
-# symfony-project-template - Docker - prod Container Configuration                 #
-# @author: Axel Salem                                      #
+# symfony-project-template - Docker - Global Container Configuration               #
+# @author: Axel Salem                                                              #
 ####################################################################################
 
 # Docker-compose language version

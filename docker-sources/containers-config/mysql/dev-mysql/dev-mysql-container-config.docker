@@ -1,6 +1,6 @@
 #####################################################################################
 # symfony-project-template - Docker - Dev MySQL Container Configuration File        #
-# @author: Axel Salem                                       #
+# @author: Axel Salem                                                               #
 #####################################################################################
 
 # Using official image, this one does not rely on Ubuntu / Bionic (18.04 LTS)
@@ -25,4 +25,4 @@ RUN apt-get update && apt-get install -y vim nano procps net-tools wget curl ipu
 COPY $dockerFileDirectory/dev-my.cnf /etc/mysql/my.cnf
 
 # Launch the default setup for MySQL initial parameters, so that it could run
-ADD $dockerFileDirectory/mysql-init-container.sql /docker-entrypoint-initdb.d
+ADD $mysqlDirectory/mysql-init-container.sql /docker-entrypoint-initdb.d

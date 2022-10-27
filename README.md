@@ -34,8 +34,17 @@ In this template you will have access to :
 * Rename the `docker-sources/containers-config/nginx/dev-nginx/dev.symfony-project-template.local.conf` with the same name the occurrences of `symfony-project-template` in the previous step.
   - For Exemple with the `Wow Chronicle` project it should be done `docker-sources/containers-config/nginx/dev-nginx/dev.woch.local.conf`.
   - Do the same thing with the `docker-sources/containers-config/nginx/prod-nginx/prod.symfony-project-template.local.conf` file and `docker-sources/containers-config/nginx/qa-nginx/qa.symfony-project-template.local.conf`.
+* Create `.env.dev.local`, `.env.staging.local`, `.env.prod.local` in the `docker-sources/environment-files` directory and copy the content of `docker-sources/environment-files/.env.[environment].local.dist` in it.
+  - In the content of the file you should replace the `[environment]` occurrences by :
+    - `prod` for the prod environment
+    - `staging` for the staging environment
+    - `dev` for the dev environment
+  - In the content of the file you should replace the `[environment-port]` occurrences by :
+      - `10301` for the prod environment
+      - `10311` for the staging environment
+      - `10321` for the dev environment
 * Add the following line in your `/etc/hosts` file if your are on linux or macOS or in your `C:\Windows\System32\drivers\etc\hosts` file if you are on windows.
-  - `127.0.0.1 dev.[project name].local`,`127.0.0.1 prod.[project name].local`,`127.0.0.1 qa.[project name].local`
+  - `127.0.0.1 dev.[project name].local`,`127.0.0.1 prod.[project name].local`,`127.0.0.1 staging.[project name].local`
   - Tips: For modify the hosts file you should be in administrator mode.
 * Run the command :
   - `make init-project-win` for windows
@@ -44,7 +53,7 @@ In this template you will have access to :
   - Tips: You can find all the custom commands in the Makefiles directory.
 * After you done the previous step you can access to your symfony project with the urls
   - `http://prod.[project name].local:10101`
-  - `http://qa.[project name].local:10111`
+  - `http://staging.[project name].local:10111`
   - `http://dev.[project name].local:10121`
 
 ## Update the template

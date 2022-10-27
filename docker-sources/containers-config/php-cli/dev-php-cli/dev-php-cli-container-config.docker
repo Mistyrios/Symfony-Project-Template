@@ -1,7 +1,6 @@
 ################################################################################################
-# symfony-project-template - Docker - PHP-CLI Container Configuration                   #
-
-# @author: Axel Salem                                    #
+# symfony-project-template - Docker - Dev PHP-CLI Container Configuration                      #
+# @author: Axel Salem                                                                          #
 ################################################################################################
 
 # Using official PHP-CLI image from docker hub
@@ -11,8 +10,7 @@ FROM php:8.0-cli
 # Value used for the next step
 # This value don't stay in the container
 ENV     commonFileDirectory         docker-sources/containers-config/
-ENV     phpFpmDirectory             $commonFileDirectory/php-cli/
-ENV     dockerFileDirectory         $phpFpmDirectory/dev-php-cli/
+ENV     phpCliDirectory             $commonFileDirectory/php-cli/
 
 ENV     etcContainerDirectory       /usr/local/etc/
 ENV     binContainerDirectory       /usr/local/bin/
@@ -28,7 +26,7 @@ COPY $commonFileDirectory/.bashrc /root/.bashrc
 
 # This php.ini has edits for batch processing and lesser time/memory limits
 # @SEE dev-php-cli.ini
-COPY $dockerFileDirectory/dev-php-cli.ini $etcContainerDirectory/php/php.ini
+COPY $phpCliDirectory/global-php-cli.ini $etcContainerDirectory/php/php.ini
 
 # Install the additional PHP extensions required by the backend
 # These extensions are installed via a special script provided by the docker hub image
