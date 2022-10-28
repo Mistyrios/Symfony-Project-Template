@@ -8,7 +8,7 @@
 
 :: Ask for confirmation first, for this takes a long time and can be called by mistake
 ECHO ---------------------------------------------------
-ECHO - symfony-project-template Staging Containers     -
+ECHO - symfony-project-template STAGING Containers     -
 ECHO - (You need to have Docker installed to proceed)  -
 ECHO ---------------------------------------------------
 
@@ -38,7 +38,7 @@ ECHO -----------------------------------------------------------------------
 :: Confirm what has been done
 ECHO.
 ECHO -----------------------------------------------------------------------
-ECHO Staging symfony-project-template containers successfully started.
+ECHO STAGING symfony-project-template containers successfully started.
 ECHO -----------------------------------------------------------------------
 
 :: Echo current containers
