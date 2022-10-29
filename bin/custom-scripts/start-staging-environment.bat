@@ -23,14 +23,14 @@ ECHO.
 :: So we just use ugly loops for now. :(
 IF /I "%confirm%"=="y" (GOTO :start) ELSE (GOTO :bypass)
 
-:: Start the production containers
+:: Start the script
 :start
 
 :: Start the staging containers
 ECHO.
 ECHO -----------------------------------------------------------------------
-ECHO (Re)generating / (Re)starting Staging containers                      -
-ECHO Tagging them with staging prefix, forced recreation                   -
+ECHO - (Re)generating / (Re)starting Staging containers                    -
+ECHO - Tagging them with staging prefix, forced recreation                 -
 ECHO -----------------------------------------------------------------------
 docker-compose -f "docker-sources/global-docker-compose.yml" -f "docker-sources/staging-docker-compose.yml" -p staging up -d --force-recreate --build
 ECHO -----------------------------------------------------------------------
@@ -38,7 +38,7 @@ ECHO -----------------------------------------------------------------------
 :: Confirm what has been done
 ECHO.
 ECHO -----------------------------------------------------------------------
-ECHO STAGING symfony-project-template containers successfully started.
+ECHO - STAGING symfony-project-template containers successfully started.   -
 ECHO -----------------------------------------------------------------------
 
 :: Echo current containers

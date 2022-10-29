@@ -7,6 +7,11 @@
 @ECHO OFF
 
 :: Stop and delete PROD containers and PROD network
+ECHO.
+ECHO -----------------------------------------------------------------------
+ECHO - Stop and delete PROD containers                                     -
+ECHO -----------------------------------------------------------------------
+
 docker container rm symfony-project-template-prod-php-cli -f
 docker container rm symfony-project-template-prod-nginx -f
 docker container rm symfony-project-template-prod-php-fpm -f
