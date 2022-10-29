@@ -8,14 +8,14 @@
 
 :: Ask people if they really want to proceed
 ECHO.
-SET /P confirm="Are you SURE you want to stop ALL environment? (Y/y/N/n) "
+SET /P confirm="Are you SURE you want to stop ALL environments? (Y/y/N/n) "
 
 :: Use that variable prompted from user to go further or not
 :: Note that Windows shell scripts don't really like multiple commands and nesting
 :: So we just use ugly loops for now. :(
 IF /I "%confirm%"=="y" (GOTO :start) ELSE (GOTO :bypass)
 
-:: Start the update of the project
+:: Start the script
 :start
 
 :: Stop and delete PROD containers and PROD network
@@ -78,7 +78,8 @@ GOTO end
 :: If the user answered "n"
 :bypass
 ECHO.
-ECHO OK, then. See you around! :)
+ECHO -----------------------------------------------------------------------
+ECHO - OK, then. See you around! :)                                        -
 ECHO -----------------------------------------------------------------------
 
 :: The end!

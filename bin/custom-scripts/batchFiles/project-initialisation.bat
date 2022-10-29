@@ -1,15 +1,15 @@
-:: ########################################################################################
-:: # symfony-project-template - Windows - Script Batch - Initialization of the project    #
-:: # @author: Axel Salem                                                                  #
-:: ########################################################################################
+:: ################################################################################################################
+:: # symfony-project-template - Windows - Script Batch - Initialization of the project                            #
+:: # @author: Axel Salem                                                                                          #
+:: ################################################################################################################
 
 :: Shut down Windows current command echoing
 @ECHO OFF
 
 :: Ask for confirmation first, for this takes a long time and can be called by mistake
-ECHO -------------------------------------------------------------
-ECHO - symfony-project-template project initialisation           -
-ECHO -------------------------------------------------------------
+ECHO -----------------------------------------------------------------------
+ECHO - symfony-project-template project initialisation                     -
+ECHO -----------------------------------------------------------------------
 
 :: Ask people if they really want to proceed
 ECHO.
@@ -25,9 +25,9 @@ IF /I "%confirm%"=="y" (GOTO :start) ELSE (GOTO :bypass)
 
 :: Install composer to use different plugin
 ECHO.
-ECHO ---------------------------------------------------
-ECHO - Composer - self-update and update               -
-ECHO ---------------------------------------------------
+ECHO -----------------------------------------------------------------------
+ECHO - Composer - self-update and install vendor                           -
+ECHO -----------------------------------------------------------------------
 
 ECHO Update of composer.phar
 php-sources\php\php.exe composer.phar self-update
@@ -39,20 +39,20 @@ ECHO    * Symfony Framework Bundle
 ECHO    * Symfony Maker Bundle
 ECHO    * Symfony Orm Pack
 ECHO    * Symfony CRUD Generator
-php-sources\php\php.exe composer.phar update
+php-sources\php\php.exe composer.phar install
 
 :: Confirm what has been done
 ECHO.
 ECHO -----------------------------------------------------------------------
-ECHO - Successfully update composer vendor.                                -
+ECHO - Successfully install composer vendor.                               -
 ECHO -----------------------------------------------------------------------
 
 :: Creation of the specific OS Makefile
 ECHO.
-ECHO ---------------------------------------------------
-ECHO - Creation of the specific OS Makefile            -
-ECHO - Copying windows-makefile-sample to Makefile     -
-ECHO ---------------------------------------------------
+ECHO -----------------------------------------------------------------------
+ECHO - Creation of the specific OS Makefile                                -
+ECHO - Copying windows-makefile-sample to Makefile                         -
+ECHO -----------------------------------------------------------------------
 COPY Makefiles\windows-makefile-sample Makefile
 
 :: Confirm what has been done
@@ -63,9 +63,9 @@ ECHO -----------------------------------------------------------------------
 
 :: Git Initialization
 ECHO.
-ECHO ---------------------------------------------------
-ECHO - Git initialisation                              -
-ECHO ---------------------------------------------------
+ECHO -----------------------------------------------------------------------
+ECHO - Git initialisation                                                  -
+ECHO -----------------------------------------------------------------------
 
 :: Initialization of git
 SET /P confirm="Are you SURE you want to initialise git (If git was already by you or other people, enter n or N)? (Y/y/N/n) "
@@ -92,8 +92,9 @@ GOTO end
 :: If the user answered "n"
 :bypass
 ECHO.
-ECHO OK, then. See you around! :)
-ECHO ---------------------------------------------------
+ECHO -----------------------------------------------------------------------
+ECHO - OK, then. See you around! :)                                        -
+ECHO -----------------------------------------------------------------------
 
 :: The end!
 :end

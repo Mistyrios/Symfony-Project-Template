@@ -1,35 +1,37 @@
 ################################################################################################################
-# symfony-project-template - Linux&MacOS - Start Prod containers                                               #
+# symfony-project-template - Linux&MacOS - Update composer and composer vendor                                 #                                            #
 # @author: Axel Salem                                                                                          #
 ################################################################################################################
 
 # The functions use in this script
 # If the user answered "Yes"
-function build_prod_env() {
-    # Start the Production containers
+function update_project_vendor() {
+    # Update composer
     echo ""
     echo "-----------------------------------------------------------------------"
-    echo "- (Re)generating / (Re)starting PROD containers                       -"
-    echo "- Tagging them with prod prefix, forced recreation.                   -"
+    echo "- Updating Composer                                                   -"
     echo "-----------------------------------------------------------------------"
-    docker-compose -f "docker-sources/global-docker-compose.yml" -f  "docker-sources/prod-docker-compose.yml" -p prod up -d --force-recreate --build
+    php composer.phar self-update
     echo "-----------------------------------------------------------------------"
 
     # Confirm what has been done
     echo ""
     echo "-----------------------------------------------------------------------"
-    echo "- PROD symfony-project-template containers successfully started.      -"
+    echo "- Successfully update composer                                        -"
     echo "-----------------------------------------------------------------------"
 
-    # echo current containers
+    # Update project vendor
     echo ""
     echo "-----------------------------------------------------------------------"
-    echo "Those are your currently active containers."
-    docker ps -a
+    echo "- Updating and Installing composer vendor from composer.json          -"
+    echo "-----------------------------------------------------------------------"
+    php composer.phar update
+    echo "-----------------------------------------------------------------------"
 
-    # echo current networks
-    echo "Those are your currently active networks."
-    docker network ls
+    # Confirm what has been done
+    echo ""
+    echo "-----------------------------------------------------------------------"
+    echo "- Successfully update composer vendor.                                -"
     echo "-----------------------------------------------------------------------"
 }
 
@@ -41,20 +43,19 @@ function bypass() {
     echo "-----------------------------------------------------------------------"
 }
 
-# The script for build the containers
-# Ask for confirmation first, for this takes a long time and can be called by mistake
+# Start the script
+# Ask people if they really want to proceed
 echo "-----------------------------------------------------------------------"
-echo "- symfony-project-template Prod Containers                            -"
-echo "- (You need to have Docker installed to proceed)                      -"
+echo "- symfony-project-template Update Composer Vendor                     -"
+echo "- (Using embedded PHP win64 executable)                               -"
 echo "-----------------------------------------------------------------------"
 
-# Ask people if they really want to proceed
 echo ""
-echo "Are you SURE you want to rebuild PROD containers ?"
+echo "Are you SURE you want to update project composer vendor? ?"
 select yn in "Yes" "No"; do
     case $yn in
         Yes )
-            build_prod_env
+            update_project_vendor
             break;;
         No )
             bypass

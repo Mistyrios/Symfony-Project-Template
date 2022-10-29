@@ -15,7 +15,7 @@ SET /P confirm="Are you SURE you want to stop STAGING environment? (Y/y/N/n) "
 :: So we just use ugly loops for now. :(
 IF /I "%confirm%"=="y" (GOTO :start) ELSE (GOTO :bypass)
 
-:: Start the update of the project
+:: Start the script
 :start
 
 :: Stop and delete STAGING containers and STAGING network
@@ -42,7 +42,8 @@ GOTO end
 :: If the user answered "n"
 :bypass
 ECHO.
-ECHO OK, then. See you around! :)
+ECHO -----------------------------------------------------------------------
+ECHO - OK, then. See you around! :)                                        -
 ECHO -----------------------------------------------------------------------
 
 :: The end!

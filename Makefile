@@ -8,5 +8,5 @@
 init-project-win:
 	@.\bin\custom-scripts\batchFiles\project-initialisation.bat
 
-init-project-lin:
+init-project-lm:
 	@bash bin/custom-scripts/bashFiles/project-initialisation.sh

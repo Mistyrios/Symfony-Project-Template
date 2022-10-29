@@ -7,10 +7,10 @@
 @ECHO OFF
 
 :: Ask for confirmation first, for this takes a long time and can be called by mistake
-ECHO ---------------------------------------------------
-ECHO - symfony-project-template Prod Containers        -
-ECHO - (You need to have Docker installed to proceed)  -
-ECHO ---------------------------------------------------
+ECHO -----------------------------------------------------------------------
+ECHO - symfony-project-template Prod Containers                            -
+ECHO - (You need to have Docker installed to proceed)                      -
+ECHO -----------------------------------------------------------------------
 
 :: Ask people if they really want to proceed
 :ask
@@ -60,7 +60,8 @@ GOTO end
 :: If the user answered "n"
 :bypass
 ECHO.
-ECHO OK, then. See you around! :)
+ECHO -----------------------------------------------------------------------
+ECHO - OK, then. See you around! :)                                        -
 ECHO -----------------------------------------------------------------------
 
 :: The end!

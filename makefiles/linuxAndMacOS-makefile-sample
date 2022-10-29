@@ -6,8 +6,8 @@
 # The command for the initial build of the project
 init-project:
 	@bash bin/custom-scripts/bashFiles/project-initialisation.sh
-update-composer:
-	@bash bin/custom-scripts/bashFiles/update-composer.sh
+update-project-vendor:
+	@bash bin/custom-scripts/bashFiles/update-project-vendor.sh
 
 # The commands for enter in the docker containers
 php-cli-dev:

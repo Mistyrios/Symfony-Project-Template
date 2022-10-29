@@ -1,5 +1,8 @@
 # Symfony Template Project
+This project is an alternative version of the work of [William Pinnaud](https://github.com/DocFX) on this project https://github.com/WebProjectsInitiatives/Symfony-Project-Template
+
 This is a template project for Symfony. It can be used to start a new symfony project or it can be used with an existing project.
+
 In this template you will have access to :
 * Four containers : 
   - php-cli : for running symfony commands
@@ -22,9 +25,12 @@ In this template you will have access to :
 * Docker : https://docs.docker.com/install/
 * Composer : https://getcomposer.org/download/
 * Make : 
-  - For linux : Tap `sudo apt-get update & sudo apt-get install` in the terminal.
-  - MacOS : brew install make
+  - For linux : Tap `sudo apt-get update & sudo apt-get install make` in the terminal.
+  - MacOS : Tap `brew install make` in the terminal.
   - For windows : https://gnuwin32.sourceforge.net/packages/make.htm
+* PHP 8.0.24 (Only For Linux And MacOS)
+  - MacOS : Tap `brew install php@8.0 and brew link php@8.0 (If you have a other version of php installed)` in the terminal.
+  - Linux : Tap `sudo apt-get update & sudo apt-get install php8.0` in the terminal.
 
 ## Installation
 * Clone the project where you want to create your symfony project
@@ -49,7 +55,7 @@ In this template you will have access to :
 * Run the command :
   - `make init-project-win` for windows
   - `make init-project-lm` for linux & MacOS
-* Run the command `make dev-env:` to start the project in dev environment
+* Run the command `make dev-env` to start the project in dev environment
   - Tips: You can find all the custom commands in the Makefiles directory.
 * After you done the previous step you can access to your symfony project with the urls
   - `http://prod.[project name].local:10101`

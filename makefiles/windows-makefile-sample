@@ -6,8 +6,8 @@
 # The command for the initial build of the project
 init-project:
 	@.\bin\custom-scripts\batchFiles\project-initialisation.bat
-update-project:
-	@.\bin\custom-scripts\batchFiles\update-composer.bat
+update-project-vendor:
+	@.\bin\custom-scripts\batchFiles\update-project-vendor.bat
 
 # The commands for enter in the docker containers
 php-cli-dev:

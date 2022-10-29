@@ -7,14 +7,14 @@
 @ECHO OFF
 
 :: Ask for confirmation first, for this takes a long time and can be called by mistake
-ECHO ---------------------------------------------------
-ECHO - symfony-project-template Composer               -
-ECHO - (Using embedded PHP win64 executable)           -
-ECHO ---------------------------------------------------
+ECHO -----------------------------------------------------------------------
+ECHO - symfony-project-template Project Composer Vendor                    -
+ECHO - (Using embedded PHP win64 executable)                               -
+ECHO -----------------------------------------------------------------------
 
 :: Ask people if they really want to proceed
 ECHO.
-SET /P confirm="Are you SURE you want to install/update project vendors? (Y/y/N/n) "
+SET /P confirm="Are you SURE you want to update project vendor? (Y/y/N/n) "
 
 :: Use that variable prompted from user to go further or not
 :: Note that Windows shell scripts don't really like multiple commands and nesting
@@ -25,19 +25,19 @@ IF /I "%confirm%"=="y" (GOTO :start) ELSE (GOTO :bypass)
 :start
 
 ECHO.
-ECHO ---------------------------------------------------
-ECHO - Updating Composer                               -
-ECHO ---------------------------------------------------
+ECHO -----------------------------------------------------------------------
+ECHO - Updating Composer                                                   -
+ECHO -----------------------------------------------------------------------
 php-sources\php\php.exe composer.phar self-update
-ECHO ---------------------------------------------------
+ECHO -----------------------------------------------------------------------
 
 :: Confirm what has been done
 ECHO.
-ECHO ---------------------------------------------------
-ECHO - Successfully update composer                    -
-ECHO ---------------------------------------------------
+ECHO -----------------------------------------------------------------------
+ECHO - Successfully update composer                                        -
+ECHO -----------------------------------------------------------------------
 
-:: Start the dev containers
+:: Update composer vendor
 ECHO.
 ECHO -----------------------------------------------------------------------
 ECHO - Updating and Installing composer vendor from composer.json          -
@@ -57,7 +57,8 @@ GOTO end
 :: If the user answered "n"
 :bypass
 ECHO.
-ECHO OK, then. See you around! :)
+ECHO -----------------------------------------------------------------------
+ECHO - OK, then. See you around! :)                                        -
 ECHO -----------------------------------------------------------------------
 
 :: The end!
