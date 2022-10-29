@@ -6,6 +6,18 @@
 :: Shut down Windows current command echoing
 @ECHO OFF
 
+:: Ask people if they really want to proceed
+ECHO.
+SET /P confirm="Are you SURE you want to stop DEV environment? (Y/y/N/n) "
+
+:: Use that variable prompted from user to go further or not
+:: Note that Windows shell scripts don't really like multiple commands and nesting
+:: So we just use ugly loops for now. :(
+IF /I "%confirm%"=="y" (GOTO :start) ELSE (GOTO :bypass)
+
+:: Start the update of the project
+:start
+
 :: Stop and delete DEV containers and DEV network
 ECHO.
 ECHO -----------------------------------------------------------------------
@@ -23,3 +35,15 @@ ECHO.
 ECHO -----------------------------------------------------------------------
 ECHO - DEV symfony-project-template containers successfully stopped.       -
 ECHO -----------------------------------------------------------------------
+
+:: Just stop here and go to the end!
+GOTO end
+
+:: If the user answered "n"
+:bypass
+ECHO.
+ECHO OK, then. See you around! :)
+ECHO -----------------------------------------------------------------------
+
+:: The end!
+:end

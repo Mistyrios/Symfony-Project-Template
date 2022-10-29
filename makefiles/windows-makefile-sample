@@ -5,9 +5,9 @@
 #The @ at the beginning of each command is used to execute commands in silent mode (without the command being repeated at use)
 # The command for the initial build of the project
 init-project:
-	@.\bin\custom-scripts\project-initialisation.bat
-update-composer:
-	@.\bin\custom-scripts\update-composer.bat
+	@.\bin\custom-scripts\batchFiles\project-initialisation.bat
+update-project:
+	@.\bin\custom-scripts\batchFiles\update-composer.bat
 
 # The commands for enter in the docker containers
 php-cli-dev:
@@ -37,18 +37,18 @@ mysql-prod:
 
 # The commands for build the docker environments
 dev-env:
-	@.\bin\custom-scripts\start-dev-environment.bat
+	@.\bin\custom-scripts\batchFiles\start-dev-environment.bat
 staging-env:
-	@.\bin\custom-scripts\start-staging-environment.bat
+	@.\bin\custom-scripts\batchFiles\start-staging-environment.bat
 prod-env:
-	@.\bin\custom-scripts\start-prod-environment.bat
+	@.\bin\custom-scripts\batchFiles\start-prod-environment.bat
 all-env:
-	@.\bin\custom-scripts\start-all-environments.bat
+	@.\bin\custom-scripts\batchFiles\start-all-environments.bat
 stop-dev-env:
-	@.\bin\custom-scripts\stop-dev-environment.bat
+	@.\bin\custom-scripts\batchFiles\stop-dev-environment.bat
 stop-staging-env:
-	@.\bin\custom-scripts\stop-staging-environment.bat
+	@.\bin\custom-scripts\batchFiles\stop-staging-environment.bat
 stop-prod-env:
-	@.\bin\custom-scripts\stop-prod-environment.bat
+	@.\bin\custom-scripts\batchFiles\stop-prod-environment.bat
 stop-all-env:
-	@.\bin\custom-scripts\stop-all-environments.bat
+	@.\bin\custom-scripts\batchFiles\stop-all-environments.bat

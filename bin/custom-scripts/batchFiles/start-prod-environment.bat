@@ -1,5 +1,5 @@
 :: ################################################################################################################
-:: # symfony-project-template - Windows - Start Staging containers                                                #
+:: # symfony-project-template - Windows - Start Prod containers                                                   #
 :: # @author: Axel Salem                                                                                          #
 :: ################################################################################################################
 
@@ -8,14 +8,14 @@
 
 :: Ask for confirmation first, for this takes a long time and can be called by mistake
 ECHO ---------------------------------------------------
-ECHO - symfony-project-template STAGING Containers     -
+ECHO - symfony-project-template Prod Containers        -
 ECHO - (You need to have Docker installed to proceed)  -
 ECHO ---------------------------------------------------
 
 :: Ask people if they really want to proceed
 :ask
 ECHO.
-SET /P confirm="Are you SURE you want to rebuild staging containers? (Y/y/N/n) "
+SET /P confirm="Are you SURE you want to rebuild PROD containers? (Y/y/N/n) "
 ECHO.
 
 :: Use that variable prompted from user to go further or not
@@ -26,19 +26,19 @@ IF /I "%confirm%"=="y" (GOTO :start) ELSE (GOTO :bypass)
 :: Start the script
 :start
 
-:: Start the staging containers
+:: Start the Production containers
 ECHO.
 ECHO -----------------------------------------------------------------------
-ECHO - (Re)generating / (Re)starting Staging containers                    -
-ECHO - Tagging them with staging prefix, forced recreation                 -
+ECHO - (Re)generating / (Re)starting PROD containers                       -
+ECHO - Tagging them with prod prefix, forced recreation.                   -
 ECHO -----------------------------------------------------------------------
-docker-compose -f "docker-sources/global-docker-compose.yml" -f "docker-sources/staging-docker-compose.yml" -p staging up -d --force-recreate --build
+docker-compose -f "docker-sources/global-docker-compose.yml" -f  "docker-sources/prod-docker-compose.yml" -p prod up -d --force-recreate --build
 ECHO -----------------------------------------------------------------------
 
 :: Confirm what has been done
 ECHO.
 ECHO -----------------------------------------------------------------------
-ECHO - STAGING symfony-project-template containers successfully started.   -
+ECHO - PROD symfony-project-template containers successfully started.      -
 ECHO -----------------------------------------------------------------------
 
 :: Echo current containers
@@ -59,6 +59,7 @@ GOTO end
 
 :: If the user answered "n"
 :bypass
+ECHO.
 ECHO OK, then. See you around! :)
 ECHO -----------------------------------------------------------------------
 

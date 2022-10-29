@@ -5,9 +5,9 @@
 #The @ at the beginning of each command is used to execute commands in silent mode (without the command being repeated at use)
 # The command for the initial build of the project
 init-project:
-	@bash bin/custom-scripts/project-initialisation.sh
+	@bash bin/custom-scripts/bashFiles/project-initialisation.sh
 update-composer:
-	@bash bin/custom-scripts/update-composer.sh
+	@bash bin/custom-scripts/bashFiles/update-composer.sh
 
 # The commands for enter in the docker containers
 php-cli-dev:
@@ -37,18 +37,18 @@ mysql-prod:
 
 # The commands for build the docker environments
 dev-env:
-	@bash bin/custom-scripts/start-dev-environment.sh
+	@bash bin/custom-scripts/bashFiles/start-dev-environment.sh
 staging-env:
-	@bash bin/custom-scripts/start-staging-environment.sh
+	@bash bin/custom-scripts/bashFiles/start-staging-environment.sh
 prod-env:
-	@bash bin/custom-scripts/start-prod-environment.sh
+	@bash bin/custom-scripts/bashFiles/start-prod-environment.sh
 all-env:
-	@bash bin/custom-scripts/start-all-environments.sh
+	@bash bin/custom-scripts/bashFiles/start-all-environments.sh
 stop-dev-env:
-	@bash bin/custom-scripts/stop-dev-environment.sh
+	@bash bin/custom-scripts/bashFiles/stop-dev-environment.sh
 stop-staging-env:
-	@bash bin/custom-scripts/stop-staging-environment.sh
+	@bash bin/custom-scripts/bashFiles/stop-staging-environment.sh
 stop-prod-env:
-	@bash bin/custom-scripts/stop-prod-environment.sh
+	@bash bin/custom-scripts/bashFiles/stop-prod-environment.sh
 stop-all-env:
-	@bash bin/custom-scripts/stop-all-environments.sh
+	@bash bin/custom-scripts/bashFiles/stop-all-environments.sh
