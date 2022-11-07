@@ -39,7 +39,7 @@ ECHO    * Symfony Framework Bundle
 ECHO    * Symfony Maker Bundle
 ECHO    * Symfony Orm Pack
 ECHO    * Symfony CRUD Generator
-php-sources\php\php.exe composer.phar install
+php-sources\php\php.exe composer.phar update
 
 :: Confirm what has been done
 ECHO.

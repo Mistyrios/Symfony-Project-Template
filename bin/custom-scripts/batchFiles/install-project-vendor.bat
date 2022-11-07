@@ -1,5 +1,5 @@
 :: ################################################################################################################
-:: # symfony-project-template - Windows - Update composer and composer vendor                                     #                                            #
+:: # symfony-project-template - Linux&MacOS - Update composer and install composer vendor                         #                                             #
 :: # @author: Axel Salem                                                                                          #
 :: ################################################################################################################
 
@@ -8,7 +8,7 @@
 
 :: Ask for confirmation first, for this takes a long time and can be called by mistake
 ECHO -----------------------------------------------------------------------
-ECHO - symfony-project-template Project Composer Vendor                    -
+ECHO - symfony-project-template Update and install Composer Vendor         -
 ECHO - (Using embedded PHP win64 executable)                               -
 ECHO -----------------------------------------------------------------------
 

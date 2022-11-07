@@ -1,5 +1,5 @@
 ################################################################################################################
-# symfony-project-template - Linux&MacOS - Update composer and composer vendor                                 #                                            #
+# symfony-project-template - Linux&MacOS - Update composer and install composer vendor                         #                                            #
 # @author: Axel Salem                                                                                          #
 ################################################################################################################
 
@@ -46,7 +46,7 @@ function bypass() {
 # Start the script
 # Ask people if they really want to proceed
 echo "-----------------------------------------------------------------------"
-echo "- symfony-project-template Update Composer Vendor                     -"
+echo "- symfony-project-template Update and install Composer Vendor         -"
 echo "- (Using embedded PHP win64 executable)                               -"
 echo "-----------------------------------------------------------------------"
 

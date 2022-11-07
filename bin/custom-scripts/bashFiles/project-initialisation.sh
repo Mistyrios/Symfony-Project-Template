@@ -23,7 +23,7 @@ function initialise_project() {
     echo "   * Symfony Maker Bundle"
     echo "   * Symfony Orm Pack"
     echo "   * Symfony CRUD Generator"
-    php composer.phar install
+    php composer.phar update
 
     # Confirm what has been done
     echo ""

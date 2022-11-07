@@ -4,10 +4,8 @@
 ###########################################################################################################
 #The @ at the beginning of each command is used to execute commands in silent mode (without the command being repeated at use)
 # The command for the initial build of the project
-init-project:
-	@bash bin/custom-scripts/bashFiles/project-initialisation.sh
-update-project-vendor:
-	@bash bin/custom-scripts/bashFiles/update-project-vendor.sh
+install-project-vendor:
+	@bash bin/custom-scripts/bashFiles/install-project-vendor.sh
 
 # The commands for enter in the docker containers
 php-cli-dev:
