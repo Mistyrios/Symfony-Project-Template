@@ -1,5 +1,5 @@
 #####################################################################################
-# symfony-project-template - MySQL - Dev SQL Configuration File                    #
+# symfony-project-template - MySQL - Dev SQL Configuration File                     #
 # @author: Axel Salem                                                               #
 #####################################################################################
 

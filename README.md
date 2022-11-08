@@ -1,5 +1,5 @@
 # Symfony Template Project
-This project is an alternative version of the work of [William Pinnaud](https://github.com/DocFX) on this project https://github.com/WebProjectsInitiatives/rhle
+This project is an alternative version of the work of [William Pinnaud](https://github.com/DocFX) on this project https://github.com/WebProjectsInitiatives/symfony-project-template
 
 This is a template project for Symfony. It can be used to start a new symfony project or it can be used with an existing project.
 
@@ -28,18 +28,18 @@ In this template you will have access to :
     - For linux : Tap `sudo apt-get update & sudo apt-get install make` in the terminal.
     - MacOS : Tap `brew install make` in the terminal.
     - For windows : https://gnuwin32.sourceforge.net/packages/make.htm
-* PHP 8.0.24 (Only For Linux And MacOS)
-    - MacOS : Tap `brew install php@8.0 and brew link php@8.0 (If you have a other version of php installed)` in the terminal.
-    - Linux : Tap `sudo apt-get update & sudo apt-get install php8.0` in the terminal.
+* PHP 8.1.12 (Only For Linux And MacOS)
+    - MacOS : Tap `brew install php@8.1 and brew link php@8.1 (If you have a other version of php installed)` in the terminal.
+    - Linux : Tap `sudo apt-get update & sudo apt-get install php8.1` in the terminal.
 
 ## Installation
 * Clone the project where you want to create your symfony project
-* Do a `find & replace` of all `rhle` occurrences by your project name
+* Do a `find & replace` of all `symfony-project-template` occurrences by your project name
     - Tips: You can use ctrl+shift+R or cmd+shift+R in phpstorm
     - Tips: For rename the occurrences you should use a simple and short name. For Exemple you can just use four letter, Me for my symfony project `Wow Chronicles` I will use `woch`.
-* Rename the `docker-sources/containers-config/nginx/dev-nginx/dev.rhle.local.conf` with the same name the occurrences of `rhle` in the previous step.
+* Rename the `docker-sources/containers-config/nginx/dev-nginx/dev.symfony-project-template.local.conf` with the same name the occurrences of `symfony-project-template` in the previous step.
     - For Exemple with the `Wow Chronicle` project it should be done `docker-sources/containers-config/nginx/dev-nginx/dev.woch.local.conf`.
-    - Do the same thing with the `docker-sources/containers-config/nginx/prod-nginx/prod.rhle.local.conf` file and `docker-sources/containers-config/nginx/qa-nginx/qa.rhle.local.conf`.
+    - Do the same thing with the `docker-sources/containers-config/nginx/prod-nginx/prod.symfony-project-template.local.conf` file and `docker-sources/containers-config/nginx/qa-nginx/qa.symfony-project-template.local.conf`.
 * Create `.env.dev.local`, `.env.staging.local`, `.env.prod.local` in the `environment-files` directory and copy the content of `environment-files/.env.[environment].local.dist` in it.
     - In the content of the file you should replace the `[environment]` occurrences by :
         - `prod` for the prod environment
@@ -63,7 +63,6 @@ In this template you will have access to :
     - `http://dev.[project name].local:10121`
 * After you initialise the project on the first computer, for install your project on an other computer, clone it and run the command `make install-project-vendor` to install the vendor of the project. You should to also create the `.env.dev.local`, `.env.staging.local`, `.env.prod.local` files in the `environment-files` directory and copy the content of `environment-files/.env.[environment].local.dist` in it.
     - Tips: You can find all the custom commands in the Makefiles directory.
-    - Tips: For more security you can also delete the project-initialisation file.
 
 ## Update the template
 For update the template you should do the following steps :

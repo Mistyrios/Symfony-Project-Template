@@ -5,7 +5,7 @@
 
 # Using official PHP-CLI image from docker hub
 # @Uses Debian Stretch
-FROM php:8.0-cli
+FROM php:8.1-cli
 
 # Value used for the next step
 # This value don't stay in the container

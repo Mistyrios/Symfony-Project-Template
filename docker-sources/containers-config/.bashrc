@@ -12,6 +12,7 @@ eval "`dircolors`"
 alias ls='ls $LS_OPTIONS'
 alias ll='ls $LS_OPTIONS -la'
 alias l='ls $LS_OPTIONS -lA'
+alias sf='php bin/console'
 
 # Some more alias to avoid making mistakes:
 alias rm='rm -i'
